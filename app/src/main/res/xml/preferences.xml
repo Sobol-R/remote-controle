@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <EditTextPreference
+        android:defaultValue="00:00:00:00:00:00"
+        android:key="pref_ip"
+        android:selectAllOnFocus="true"
+        android:singleLine="true"
+        android:title="ip_adress" />
+    <ListPreference
+        android:defaultValue="Light"
+        android:entries="@array/themes_titles"
+        android:entryValues="@array/themes_titles"
+        android:key="pref_theme"
+        android:title="List preference" />
+</PreferenceScreen>

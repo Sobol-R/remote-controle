@@ -3,7 +3,9 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
-      <module fileurl="file://$PROJECT_DIR$/remoteControle.iml" filepath="$PROJECT_DIR$/remoteControle.iml" />
+      <module fileurl="file://C:\Rost_projects\remote-controle\app\app.iml" filepath="C:\Rost_projects\remote-controle\app\app.iml" />
+      <module fileurl="file://$PROJECT_DIR$/remote-controle.iml" filepath="$PROJECT_DIR$/remote-controle.iml" />
+      <module fileurl="file://C:\Rost_projects\remote-controle\remoteControle.iml" filepath="C:\Rost_projects\remote-controle\remoteControle.iml" />
     </modules>
   </component>
 </project>
