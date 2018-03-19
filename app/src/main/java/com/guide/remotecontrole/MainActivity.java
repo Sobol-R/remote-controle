@@ -12,6 +12,7 @@ import static java.lang.reflect.Array.getInt;
 
 public class MainActivity extends AppCompatActivity {
     Button set;
+    String userThemeCache;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -31,11 +32,24 @@ public class MainActivity extends AppCompatActivity {
     }
     private int getUserTheme() {
         SharedPreferences preferences = PreferenceManager.getDefaultSharedPreferences(MainActivity.this);
-        String userTheme = preferences.getString("pref_theme","Light");
-        if (userTheme.equals("Light")) {
+        String userTheme = preferences.getString("pref_theme","light");
+        if (userTheme.equals("light")) {
             return R.style.AppTheme;
         } else {
             return R.style.AppTheme_Dark;
+        }
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        SharedPreferences preferences = PreferenceManager.getDefaultSharedPreferences(MainActivity.this);
+        String userTheme = preferences.getString("pref_theme", "light");
+        if (userThemeCache == null) {
+            userThemeCache = userTheme;
+        } else if (!userTheme.equals(userThemeCache)) {
+            userThemeCache = userTheme;
+            recreate();
         }
     }
 }
