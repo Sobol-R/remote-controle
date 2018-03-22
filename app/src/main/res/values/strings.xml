@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">remoteControle</string>
+    <string name="pref_color">pref_color</string>
 </resources>

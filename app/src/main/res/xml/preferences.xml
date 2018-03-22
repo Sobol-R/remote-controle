@@ -15,6 +15,6 @@
     android:title="List preference" />
 
     <com.kizitonwose.colorpreference.ColorPreference
-        android:defaultValue="@color/color_default"
-        android:key="@string/pref_key" />
+        android:defaultValue="@color/colorPrimary"
+        android:key="@string/pref_color" />
 </PreferenceScreen>

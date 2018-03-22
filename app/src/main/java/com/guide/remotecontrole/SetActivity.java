@@ -5,17 +5,22 @@ import android.graphics.Color;
 import android.preference.Preference;
 import android.preference.PreferenceActivity;
 import android.preference.PreferenceManager;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.widget.Toolbar;
+
 
 public class SetActivity extends PreferenceActivity {
     SharedPreferences.OnSharedPreferenceChangeListener listener;
+    Toolbar toolbar;
     @Override
     protected void onCreate(final Bundle savedInstanceState) {
         setTheme(getUserTheme());
         super.onCreate(savedInstanceState);
         setContentView(R.layout.settings_activity);
         addPreferencesFromResource(R.xml.preferences);
+
+        toolbar = findViewById(R.id.toolbar);
+        toolbar.setBackgroundColor(Utils.setColor(SetActivity.this));
     }
     private int getUserTheme() {
         SharedPreferences preferences = PreferenceManager.getDefaultSharedPreferences(SetActivity.this);
@@ -40,6 +45,8 @@ public class SetActivity extends PreferenceActivity {
                     updateThemeSummery();
                 } else if (s.equals("pref_ip")) {
                     updateAdressSummery();
+                } else if (s.equals("pref_color")) {
+                    toolbar.setBackgroundColor(Utils.setColor(SetActivity.this));
                 }
             }
         };
@@ -68,9 +75,5 @@ public class SetActivity extends PreferenceActivity {
 
         Preference preference = findPreference("pref_theme");
         preference.setSummary(value);
-    }
-    private void setColor() {
-        SharedPreferences preferences = PreferenceManager.getDefaultSharedPreferences(SetActivity.this);
-        int color = preferences.getInt("pref_color", Color.BLUE); // Color.BLUE - стандартный
     }
  }
