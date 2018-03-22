@@ -1,6 +1,7 @@
 package com.guide.remotecontrole;
 
 import android.content.SharedPreferences;
+import android.graphics.Color;
 import android.preference.Preference;
 import android.preference.PreferenceActivity;
 import android.preference.PreferenceManager;
@@ -13,6 +14,7 @@ public class SetActivity extends PreferenceActivity {
     protected void onCreate(final Bundle savedInstanceState) {
         setTheme(getUserTheme());
         super.onCreate(savedInstanceState);
+        setContentView(R.layout.settings_activity);
         addPreferencesFromResource(R.xml.preferences);
     }
     private int getUserTheme() {
@@ -66,5 +68,9 @@ public class SetActivity extends PreferenceActivity {
 
         Preference preference = findPreference("pref_theme");
         preference.setSummary(value);
+    }
+    private void setColor() {
+        SharedPreferences preferences = PreferenceManager.getDefaultSharedPreferences(SetActivity.this);
+        int color = preferences.getInt("pref_color", Color.BLUE); // Color.BLUE - стандартный
     }
  }
