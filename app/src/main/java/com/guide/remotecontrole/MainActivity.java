@@ -2,20 +2,25 @@ package com.guide.remotecontrole;
 
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.graphics.Color;
+import android.graphics.drawable.ColorDrawable;
 import android.preference.PreferenceManager;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
+import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.Toolbar;
 
 import static java.lang.reflect.Array.getInt;
 
 public class MainActivity extends AppCompatActivity {
     Button set;
     String userThemeCache;
+    ActionBar toolbar;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -54,5 +59,8 @@ public class MainActivity extends AppCompatActivity {
             userThemeCache = userTheme;
             recreate();
         }
+
+        toolbar = getSupportActionBar();
+        toolbar.setBackgroundDrawable(new ColorDrawable(Utils.setColor(MainActivity.this)));
     }
 }
